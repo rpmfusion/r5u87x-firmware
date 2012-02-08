@@ -3,7 +3,7 @@
 Name:           r5u87x-firmware
 # This is a snapshot of 0.2.0 + some fixes
 Version:        0.2.0
-Release:        3.%{snapshot}%{?dist}
+Release:        4.%{snapshot}%{?dist}
 Summary:        R5U87x firmware and loader
 Group:          System Environment/Kernel
 # Source is GPL, firmware files are distributable
@@ -55,6 +55,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Feb 09 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.2.0-4.a9b2171d762b
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Fri Jun 18 2010 Hans de Goede <j.w.r.degoede@hhs.nl> 0.2.0-3.a9b2171d762b
 - Rebase to latest upstream
 - This fixes the udev rules to work with recent udev releases
