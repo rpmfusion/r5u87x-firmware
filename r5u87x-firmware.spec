@@ -3,7 +3,7 @@
 Name:           r5u87x-firmware
 # This is a snapshot of 0.2.0 + some fixes
 Version:        0.2.0
-Release:        4.%{snapshot}%{?dist}
+Release:        5.%{snapshot}%{?dist}
 Summary:        R5U87x firmware and loader
 Group:          System Environment/Kernel
 # Source is GPL, firmware files are distributable
@@ -55,6 +55,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Mar 12 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.2.0-5.a9b2171d762b
+- https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
 * Thu Feb 09 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.2.0-4.a9b2171d762b
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
