@@ -13,7 +13,7 @@ Source0:        http://bitbucket.org/ahixon/r5u87x/get/%{snapshot}.bz2
 # Distro specific firmware path adjustments
 Patch0:         r5u87x-firmware-path.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  glib2-devel libusb-devel
+BuildRequires:  glib2-devel libusb-devel gcc
 # For /lib/udev/rules.d dir ownership
 Requires:       udev
 
