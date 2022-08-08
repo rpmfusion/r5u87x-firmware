@@ -12,8 +12,13 @@ Url:            http://bitbucket.org/ahixon/r5u87x/wiki/Home
 Source0:        http://bitbucket.org/ahixon/r5u87x/get/%{snapshot}.bz2
 # Distro specific firmware path adjustments
 Patch0:         r5u87x-firmware-path.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  glib2-devel libusb-devel gcc
+BuildRequires:  glib2-devel
+%if 0%{?fedora} >= 37
+BuildRequires:  libusb-compat-0.1-devel
+%else
+BuildRequires:  libusb-devel
+%endif
+BuildRequires:  gcc
 # For /lib/udev/rules.d dir ownership
 Requires:       udev
 
@@ -38,16 +43,10 @@ make %{?_smp_mflags} PREFIX= rules
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT PREFIX=
 
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-
 %files
-%defattr(-,root,root,-)
 %doc docs/*.txt README COPYING
 /sbin/r5u87x-loader
 /lib/udev/rules.d/90-r5u87x-loader.rules
@@ -58,6 +57,8 @@ rm -rf $RPM_BUILD_ROOT
 * Mon Aug 08 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 0.2.0-19.a9b2171d762b
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild and ffmpeg
   5.1
+- Spec cleanup
+- Fix build
 
 * Thu Feb 10 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 0.2.0-18.a9b2171d762b
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
