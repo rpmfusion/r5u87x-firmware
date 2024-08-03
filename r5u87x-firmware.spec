@@ -30,7 +30,7 @@ rules to load the firmware.
 
 %prep
 %setup -q -n r5u87x
-%patch0 -p1 -z .firmware_path
+%patch -P0 -p1 -z .firmware_path
 chmod 644 README COPYING
 chmod 644 docs/*.txt
 
